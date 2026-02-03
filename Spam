@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine?</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: "Comic Sans MS", cursive, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      background: white;
+      padding: 40px 60px;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 420px;
+      position: relative;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+    }
+
+    .buttons {
+      position: relative;
+      height: 140px;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      border-radius: 15px;
+      font-weight: bold;
+    }
+
+    #yes {
+      background-color: #ff4d6d;
+      color: white;
+      padding: 20px 55px;
+      font-size: 1.6rem;
+    }
+
+    #yes:hover {
+      transform: scale(1.1);
+    }
+
+    #no {
+      background-color: #adb5bd;
+      color: white;
+      padding: 14px 32px;
+      position: absolute;
+      left: 260px;
+      top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Eisha Fatimah 💕<br>Will you be my Valentine?</h1>
+    <div class="buttons" id="box">
+      <button id="yes">YES 💖</button>
+      <button id="no">NO 😢</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const box = document.getElementById("box");
+
+    noBtn.addEventListener("mouseenter", () => {
+      const boxRect = box.getBoundingClientRect();
+      const btnRect = noBtn.getBoundingClientRect();
+
+      const maxX = boxRect.width - btnRect.width;
+      const maxY = boxRect.height - btnRect.height;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    });
+
+    document.getElementById("yes").addEventListener("click", () => {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          align-items:center;
+          background:linear-gradient(135deg, #ff9a9e, #fad0c4);
+          font-family:'Comic Sans MS', cursive;
+          color:#ff4d6d;
+          text-align:center;
+        ">
+          <h1>YAYYY!!! 💖</h1>
+          <h2>Best Valentine Ever 🥰</h2>
+        </div>
+      `;
+    });
+  </script>
+
+</body>
+</html>
